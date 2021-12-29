@@ -115,7 +115,6 @@ C:\Users\catch\Documents\Mohamed Hisham\BookStore\obj\Debug\net5.0\ref\BookStore
 C:\Users\catch\Documents\Mohamed Hisham\BookStore\obj\Debug\net5.0\BookStore.pdb
 C:\Users\catch\Documents\Mohamed Hisham\BookStore\obj\Debug\net5.0\BookStore.genruntimeconfig.cache
 C:\Users\catch\Documents\Mohamed Hisham\BookStore\obj\Debug\net5.0\Razor\Views\Author\Index.cshtml.g.cs
-C:\Users\catch\Documents\Mohamed Hisham\BookStore\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\catch\Documents\Mohamed Hisham\BookStore\obj\Debug\net5.0\Razor\Views\Author\Details.cshtml.g.cs
 C:\Users\catch\Documents\Mohamed Hisham\BookStore\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\catch\Documents\Mohamed Hisham\BookStore\obj\Debug\net5.0\Razor\Views\Author\Create.cshtml.g.cs
@@ -129,3 +128,4 @@ C:\Users\catch\Documents\Mohamed Hisham\BookStore\obj\Debug\net5.0\Razor\Views\B
 C:\Users\catch\Documents\Mohamed Hisham\BookStore\obj\Debug\net5.0\Razor\Views\Book\Create.cshtml.g.cs
 C:\Users\catch\Documents\Mohamed Hisham\BookStore\obj\Debug\net5.0\Razor\Views\Book\Edit.cshtml.g.cs
 C:\Users\catch\Documents\Mohamed Hisham\BookStore\obj\Debug\net5.0\Razor\Views\Book\Delete.cshtml.g.cs
+C:\Users\catch\Documents\Mohamed Hisham\BookStore\obj\Debug\net5.0\Razor\Views\Shared\_Validation.cshtml.g.cs
