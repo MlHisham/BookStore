@@ -16,10 +16,10 @@ namespace BookStore.Controllers
     {
         private readonly IBookStoreRepository<Book> bookRepository;
         private readonly IBookStoreRepository<Author> authorRepository;
-        private readonly IHostingEnvironment hosting;
+        private readonly IWebHostEnvironment hosting;
 
         public BookController(IBookStoreRepository<Book> bookRepository,IBookStoreRepository<Author> authorRepository,
-            IHostingEnvironment hosting)
+            IWebHostEnvironment hosting)
         {
             this.bookRepository = bookRepository;
             this.authorRepository = authorRepository;
@@ -102,8 +102,9 @@ namespace BookStore.Controllers
                 BookID = book.Id,
                 Title = book.Title,
                 Description = book.Description,
-                AuthorId=authorID,
-                Authors = authorRepository.List().ToList()
+                AuthorId = authorID,
+                Authors = authorRepository.List().ToList(),
+                ImageUrl = book.ImageUrl,
             };
             return View(viewModel);
         }
@@ -115,12 +116,29 @@ namespace BookStore.Controllers
         {
             try
             {
+                string filename = string.Empty;
+                if (viewModel.File != null)
+                {
+                    var uploads = Path.Combine(hosting.WebRootPath, "Uploads");
+                    filename = viewModel.File.FileName;
+                    string fullpath = Path.Combine(uploads, filename);
+                    //delete the old file
+                    string oldFileName = bookRepository.Find(viewModel.BookID).ImageUrl;
+                    string fullOldPath = Path.Combine(uploads, oldFileName);
+                    if (fullOldPath != fullpath)
+                    {
+                        System.IO.File.Delete(fullOldPath);
+                        //save the new file 
+                        viewModel.File.CopyTo(new FileStream(fullpath, FileMode.Create));
+                    }
+                }
                 var author = authorRepository.Find(viewModel.AuthorId);
                 var book = new Book
                 {
                     Title = viewModel.Title,
                     Description = viewModel.Description,
-                    Author = author
+                    Author = author,
+                    ImageUrl = filename,
                 };
                 bookRepository.Update(book, viewModel.BookID);
                 return RedirectToAction(nameof(Index));
